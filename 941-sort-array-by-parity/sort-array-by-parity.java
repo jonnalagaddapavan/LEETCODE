@@ -1,26 +1,18 @@
-class Solution {
+public class Solution {
     public int[] sortArrayByParity(int[] nums) {
-        int[] arr = new int[nums.length];
-        ArrayList<Integer> list = new ArrayList<>();
-        for(int i=0;i<nums.length;i++)
-        {
-            if(nums[i]%2 == 0)
-            {
-                list.add(nums[i]);
-            }
+        int i = 0, j = nums.length - 1;
+        
+        while (i < j) {
+            while (i < j && nums[i] % 2 == 0)
+                i++;
+            while (i < j && nums[j] % 2 == 1)
+                j--;
+            
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
         }
-        for(int i=0;i<nums.length;i++)
-        {
-           if (nums[i] % 2 != 0) {
-                list.add(nums[i]);
-            }
-
-        }
-         System.out.println(list);
-        for(int i=0;i<arr.length;i++)
-        {
-            arr[i] = list.get(i);
-        }
-        return arr;
+        
+        return nums;
     }
 }
