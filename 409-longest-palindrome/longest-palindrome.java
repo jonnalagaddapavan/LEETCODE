@@ -11,8 +11,8 @@ class Solution {
         }
         for(HashMap.Entry<Character,Integer> entry : map.entrySet())
         {
-            
-            
+            if(entry.getValue()>1)
+            {
                 if(entry.getValue()%2==0)
                 {
                     f = f + entry.getValue();
@@ -23,7 +23,12 @@ class Solution {
                      isodd = true;
                 }
                
-            
+            }
+            else
+            {
+                f+=entry.getValue()-1;
+                isodd = true;
+            }
 
         }
         if(isodd)
